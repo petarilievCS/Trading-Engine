@@ -1,3 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using TradingEngine;
 
+using var engine = TradingEngineServerHostBuilder.BuildTradingEngineServer();
+TradingEngineServerProvider.ServiceProvider = engine.Services;
+{
+    using var scope = TradingEngineServerProvider.ServiceProvider.CreateScope();
+    await engine.RunAsync().ConfigureAwait(false); 
+}
