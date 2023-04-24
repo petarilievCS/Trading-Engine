@@ -1,5 +1,5 @@
 ﻿using System;
-namespace TradingEngine
+namespace TradingEngine.Core
 {
 	public static class TradingEngineServerProvider
 	{
